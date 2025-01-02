@@ -1,5 +1,5 @@
 import React from "react";
-
+import {Link} from "react-router-dom";
 const Jumbotron = () => {
   return (
     <div className="max-w-screen-xl mx-auto px-4 lg:px-6 py-10 flex flex-col lg:flex-row justify-between items-center mt-[50px]">
@@ -19,11 +19,12 @@ const Jumbotron = () => {
 
         {/* Button Section */}
         <div className="mt-8 flex justify-center lg:justify-start">
-          <button className="px-6 py-3 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-gray-700 transition">
-            Experience
-          </button>
+          <Link to="/experience">
+            <button className="px-6 py-3 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-gray-700 transition">
+              Experience
+            </button>
+          </Link>
         </div>
-
         {/* Social Media Icons */}
         <div className="mt-[50px] flex space-x-4 text-left  justify-center lg:justify-start">
           {/* GitHub */}
