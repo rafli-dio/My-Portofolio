@@ -8,7 +8,7 @@
       "./images/hoteldanz-booking.png"
     ],
     "frameworks": ["Laravel", "TailwindCSS"],
-    "githubLink": "https://github.com/username/systime"
+    "githubLink": "https://github.com/rafli-dio/hotel-danz-part2"
   },
   {
     "title": "Dunia Fauna",
@@ -19,13 +19,13 @@
       "./images/duniafauna-page.png"
     ],
     "frameworks": ["Laravel"],
-    "githubLink": "https://github.com/username/gudangku"
+    "githubLink": "https://github.com/rafli-dio/dunia-fauna"
   },
   {
     "title": "Booking Lapangan",
     "description": "Website untuk pemesanan lapangan olahraga secara online, dilengkapi dengan fitur jadwal, formulir pemesanan. Dibangun menggunakan framework Laravel dan Bootstrap.",
     "imageSrcs": ["./images/lapangan-view.png", "./images/lapangan-form.png"],
     "frameworks": ["Laravel", "Bootstrap"],
-    "githubLink": "https://github.com/username/gudangku"
+    "githubLink": "https://github.com/rafli-dio/booking-lapangan"
   }
 ]

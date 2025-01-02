@@ -2,7 +2,7 @@ import React from "react";
 
 const Jumbotron = () => {
   return (
-    <div className="container mx-auto px-4 lg:px-6 py-6 flex flex-col lg:flex-row justify-between items-center mt-[50px]">
+    <div className="max-w-screen-xl mx-auto px-4 lg:px-6 py-10 flex flex-col lg:flex-row justify-between items-center mt-[50px]">
       {/* Description Section */}
       <section className="description-jumbotron w-full lg:w-[60%] p-4 lg:p-[60px]">
         <h2 className="mt-6 text-[24px] lg:text-[40px] text-center lg:text-left">
@@ -13,8 +13,8 @@ const Jumbotron = () => {
         </h1>
         <p className="mt-6 text-center lg:text-left text-sm lg:text-base">
           "Hello, my name is Rafli Dio Muhammad Valent. You can call me Rafli. I
-          am a student at Universitas Muhammadiyah Surakarta. I enjoy exploring
-          new technologies and have 3 years of experience in web development."
+          am a student at Universitas Muhammadiyah Surakarta.have 3 years of
+          experience in web development."
         </p>
 
         {/* Button Section */}
@@ -28,7 +28,7 @@ const Jumbotron = () => {
         <div className="mt-[50px] flex space-x-4 text-left  justify-center lg:justify-start">
           {/* GitHub */}
           <a
-            href="https://github.com/your-github-profile"
+            href="https://github.com/rafli-dio"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-black transition"
@@ -44,7 +44,7 @@ const Jumbotron = () => {
           </a>
           {/* LinkedIn */}
           <a
-            href="https://linkedin.com/in/your-linkedin-profile"
+            href="https://www.linkedin.com/in/rafli-dio-3298b0205/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-blue-700 transition"
@@ -60,7 +60,7 @@ const Jumbotron = () => {
           </a>
           {/* Instagram */}
           <a
-            href="https://instagram.com/your-instagram-profile"
+            href="https://www.instagram.com/raflidio_/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-gray-600 hover:text-pink-500 transition"
@@ -85,7 +85,7 @@ const Jumbotron = () => {
       </section>
 
       {/* Image Section */}
-      <section className="image-jumbotron w-full lg:w-[40%] flex justify-center items-center mt-6 lg:mt-0">
+      <section className="image-jumbotron w-full lg:w-[40%] flex justify-center items-center mb-6 lg:mt-[20px]">
         <img
           src="./images/oke-rafli.png" // Ganti dengan path gambar Anda
           alt="Jumbotron"

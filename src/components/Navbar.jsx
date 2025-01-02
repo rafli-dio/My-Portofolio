@@ -1,12 +1,13 @@
 import {useState} from "react";
+import {Link} from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="fixed top-0 left-0 w-full z-10">
-      <nav className="px-4 lg:px-6 py-2.5 mt-3">
-        <div className="backdrop-blur bg-white/50 flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-6 shadow-lg rounded-xl">
+      <nav className="px-4 lg:px-12 py-2.5 mt-3">
+        <div className="backdrop-blur-lg bg-white/50 flex flex-wrap justify-between items-center mx-auto max-w-screen-xl p-6 shadow-lg rounded-xl">
           {/* Logo */}
           <h1 className="text-xl font-bold text-gray-800">
             <span className="text-gray-400">RAFLIDIO</span>DEV
@@ -44,32 +45,35 @@ const Navbar = () => {
             id="navbar"
             className={`${
               isOpen ? "block" : "hidden"
-            } w-full md:flex md:w-auto transition-all duration-300`}
+            } w-full md:flex md:w-auto transition-all duration-300 md:items-center`}
           >
             <ul className="flex flex-col items-center font-medium mt-4 md:mt-0 md:flex-row md:space-x-8">
               <li>
-                <a
-                  href="#home"
-                  className="block py-2 px-4 text-gray-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700"
+                <Link
+                  to="/"
+                  onClick={() => window.scrollTo({top: 0, behavior: "smooth"})}
+                  className="block py-2 px-4 text-gray-800 rounded relative hover:text-gray-700 after:content-[''] after:block after:h-[2px] after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
                 >
                   About
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#about"
-                  className="block py-2 px-4 text-gray-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700"
+                <Link
+                  to="/project"
+                  onClick={() => window.scrollTo({top: 0, behavior: "smooth"})}
+                  className="block py-2 px-4 text-gray-800 rounded relative hover:text-gray-700 after:content-[''] after:block after:h-[2px] after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
                 >
                   Project
-                </a>
+                </Link>
               </li>
               <li>
-                <a
-                  href="#rooms"
-                  className="block py-2 px-4 text-gray-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700"
+                <Link
+                  to="/experience"
+                  onClick={() => window.scrollTo({top: 0, behavior: "smooth"})}
+                  className="block py-2 px-4 text-gray-800 rounded relative hover:text-gray-700 after:content-[''] after:block after:h-[2px] after:bg-black after:scale-x-0 after:origin-left after:transition-transform after:duration-300 hover:after:scale-x-100"
                 >
                   Experience
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
