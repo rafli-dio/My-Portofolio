@@ -1,0 +1,50 @@
+[
+  {
+    "name": "HTML5",
+    "logo": "devicon-html5-plain text-6xl"
+  },
+  {
+    "name": "CSS3",
+    "logo": "devicon-css3-plain text-6xl"
+  },
+  {
+    "name": "JavaScript",
+    "logo": "devicon-javascript-plain text-6xl"
+  },
+  {
+    "name": "PHP",
+    "logo": "devicon-php-plain text-6xl"
+  },
+  {
+    "name": "Bootstrap",
+    "logo": "devicon-bootstrap-plain text-6xl"
+  },
+  {
+    "name": "Tailwind CSS",
+    "logo": "devicon-tailwindcss-plain text-6xl"
+  },
+  {
+    "name": "Laravel",
+    "logo": "devicon-laravel-plain  text-6xl"
+  },
+  {
+    "name": "React",
+    "logo": "devicon-react-plain text-6xl"
+  },
+  {
+    "name": "Node.js",
+    "logo": "devicon-nodejs-plain text-6xl"
+  },
+  {
+    "name": "MySQL",
+    "logo": "devicon-mysql-plain text-6xl"
+  },
+  {
+    "name": "Canva",
+    "logo": "devicon-canva-plain text-6xl"
+  },
+  {
+    "name": "Figma",
+    "logo": "devicon-figma-plain text-6xl"
+  }
+]

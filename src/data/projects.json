@@ -1,0 +1,31 @@
+[
+  {
+    "title": "Hotel Danz",
+    "description": "Sistem Manajemen “Hotel Danz” adalah aplikasi Laravel untuk registrasi tamu, reservasi kamar, manajemen peran, dan CRUD kamar, dirancang untuk efisiensi hotel.",
+    "imageSrcs": [
+      "./images/hoteldanz-home.png",
+      "./images/hoteldanz-room.png",
+      "./images/hoteldanz-booking.png"
+    ],
+    "frameworks": ["Laravel", "TailwindCSS"],
+    "githubLink": "https://github.com/username/systime"
+  },
+  {
+    "title": "Dunia Fauna",
+    "description": "Website pembelajaran interaktif pengenalan hewan untuk anak-anak, dibuat menggunakan framework Laravel.",
+    "imageSrcs": [
+      "./images/duniafauna-home.png",
+      "./images/duniafauna-list.png",
+      "./images/duniafauna-page.png"
+    ],
+    "frameworks": ["Laravel"],
+    "githubLink": "https://github.com/username/gudangku"
+  },
+  {
+    "title": "Booking Lapangan",
+    "description": "Website untuk pemesanan lapangan olahraga secara online, dilengkapi dengan fitur jadwal, formulir pemesanan. Dibangun menggunakan framework Laravel dan Bootstrap.",
+    "imageSrcs": ["./images/lapangan-view.png", "./images/lapangan-form.png"],
+    "frameworks": ["Laravel", "Bootstrap"],
+    "githubLink": "https://github.com/username/gudangku"
+  }
+]

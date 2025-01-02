@@ -52,7 +52,7 @@ const Navbar = () => {
                   href="#home"
                   className="block py-2 px-4 text-gray-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700"
                 >
-                  Home
+                  About
                 </a>
               </li>
               <li>
@@ -68,7 +68,7 @@ const Navbar = () => {
                   href="#rooms"
                   className="block py-2 px-4 text-gray-800 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700"
                 >
-                  About
+                  Experience
                 </a>
               </li>
             </ul>
