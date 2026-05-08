@@ -3,15 +3,22 @@ import { Link } from "react-router-dom";
 import projectsData from "../data/projects.json";
 import ProjectCard from "../components/ProjectSection";
 import Navbar from "../components/Navbar";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
-const Projects = () => {
+const Projects = ({ hideNavbar = false }) => {
+  const { ref: headerRef, isVisible: isHeaderVisible } = useScrollAnimation();
+  const { ref: btnRef, isVisible: isBtnVisible } = useScrollAnimation();
+
   return (
-    <div style={{ background: "var(--bg-base)" }}>
-      <Navbar />
-      <div className="max-w-screen-xl mx-auto px-4 lg:px-8 py-10 mt-[80px]">
+    <div id="projects" style={{ background: hideNavbar ? "transparent" : "var(--bg-base)" }}>
+      {!hideNavbar && <Navbar />}
+      <div className={`max-w-screen-xl mx-auto px-4 lg:px-8 py-10 ${!hideNavbar ? "mt-[80px]" : ""}`}>
 
         {/* Section Header */}
-        <div className="mb-8">
+        <div 
+          ref={headerRef}
+          className={`mb-8 anim-hidden anim-fade-up ${isHeaderVisible ? "anim-visible" : ""}`}
+        >
           <p
             className="text-xs font-bold uppercase tracking-widest mb-2"
             style={{ color: "#7c3aed" }}
@@ -53,7 +60,10 @@ const Projects = () => {
         </div>
 
         {/* CTA */}
-        <div className="flex justify-center mt-10 mb-6">
+        <div 
+          ref={btnRef}
+          className={`flex justify-center mt-10 mb-6 anim-hidden anim-fade-up ${isBtnVisible ? "anim-visible" : ""}`}
+        >
           <Link
             to="/project"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}

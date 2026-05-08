@@ -1,8 +1,15 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Skills from "./Skills";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const workItems = [
+  {
+    period: "Februari – April 2025",
+    company: "Kantor Pertanahan ATR / BPN Kota Surakarta",
+    role: "Internship",
+    description: "Peserta magang (Internship) di lingkungan instansi Kantor Pertanahan ATR/BPN Kota Surakarta.",
+  },
   {
     period: "Januari – Maret 2021",
     company: "PT. GIT Solution",
@@ -20,14 +27,24 @@ const certItems = [
   },
 ];
 
-const Experience = () => {
+const Experience = ({ hideNavbar = false }) => {
+  const { ref: titleRef, isVisible: isTitleVisible } = useScrollAnimation();
+  const { ref: workRef, isVisible: isWorkVisible } = useScrollAnimation();
+  const { ref: certRef, isVisible: isCertVisible } = useScrollAnimation();
+
   return (
-    <div style={{ background: "var(--bg-base)", minHeight: "100vh" }}>
-      <Navbar />
-      <div className="max-w-screen-xl mx-auto px-4 lg:px-8 py-10 mt-[80px]">
+    <div 
+      id="experience" 
+      style={{ background: hideNavbar ? "transparent" : "var(--bg-base)", minHeight: hideNavbar ? "auto" : "100vh" }}
+    >
+      {!hideNavbar && <Navbar />}
+      <div className={`max-w-screen-xl mx-auto px-4 lg:px-8 py-10 ${!hideNavbar ? "mt-[80px]" : ""}`}>
 
         {/* Page Title */}
-        <div className="text-center mb-16">
+        <div 
+          ref={titleRef}
+          className={`text-center mb-16 anim-hidden anim-fade-up ${isTitleVisible ? "anim-visible" : ""}`}
+        >
           <p
             className="text-xs font-bold uppercase tracking-widest mb-2"
             style={{ color: "#7c3aed" }}
@@ -49,7 +66,10 @@ const Experience = () => {
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
           {/* Works Section */}
-          <div>
+          <div 
+            ref={workRef}
+            className={`anim-hidden anim-fade-right ${isWorkVisible ? "anim-visible" : ""}`}
+          >
             <div className="flex items-center gap-3 mb-8">
               <div
                 className="w-8 h-8 rounded-lg flex items-center justify-center"
@@ -66,9 +86,9 @@ const Experience = () => {
             </div>
 
             {/* Timeline */}
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col">
               {workItems.map((item, i) => (
-                <div key={i} className="flex gap-4 items-start">
+                <div key={i} className={`flex gap-4 items-stretch ${i < workItems.length - 1 ? "pb-6" : ""}`}>
 
                   {/* Left: line + dot column */}
                   <div className="flex flex-col items-center flex-shrink-0" style={{ width: "20px" }}>
@@ -87,7 +107,7 @@ const Experience = () => {
                     {i < workItems.length - 1 && (
                       <div
                         className="flex-1 w-[2px] rounded-full mt-1"
-                        style={{ background: "linear-gradient(to bottom, #7c3aed, rgba(124,58,237,0.1))", minHeight: "24px" }}
+                        style={{ background: "linear-gradient(to bottom, #7c3aed, rgba(124,58,237,0.3))" }}
                       />
                     )}
                   </div>
@@ -139,7 +159,10 @@ const Experience = () => {
           </div>
 
           {/* Certification Section */}
-          <div>
+          <div 
+            ref={certRef}
+            className={`anim-hidden anim-fade-left ${isCertVisible ? "anim-visible" : ""}`}
+          >
             <div className="flex items-center gap-3 mb-8">
               <div
                 className="w-8 h-8 rounded-lg flex items-center justify-center"
@@ -191,16 +214,18 @@ const Experience = () => {
           </div>
         </div>
 
-        {/* Skills Section */}
-        <div
-          className="rounded-2xl border p-6 lg:p-10"
-          style={{
-            background: "var(--bg-surface)",
-            borderColor: "var(--border)",
-          }}
-        >
-          <Skills />
-        </div>
+        {/* Skills Section - Only show if not in single page mode */}
+        {!hideNavbar && (
+          <div
+            className="rounded-2xl border p-6 lg:p-10"
+            style={{
+              background: "var(--bg-surface)",
+              borderColor: "var(--border)",
+            }}
+          >
+            <Skills />
+          </div>
+        )}
       </div>
     </div>
   );

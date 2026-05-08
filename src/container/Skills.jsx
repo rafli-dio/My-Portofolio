@@ -1,11 +1,19 @@
 import React from "react";
 import SkillCard from "../components/SkillCard";
 import skillData from "../data/skilss.json";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
-const Skills = () => (
-  <div className="flex flex-col items-center py-10 px-4">
-    {/* Header */}
-    <div className="text-center mb-10">
+const Skills = () => {
+  const { ref: headerRef, isVisible: isHeaderVisible } = useScrollAnimation();
+  const { ref: gridRef, isVisible: isGridVisible } = useScrollAnimation();
+
+  return (
+    <div className="flex flex-col items-center py-10 px-4">
+      {/* Header */}
+      <div 
+        ref={headerRef} 
+        className={`text-center mb-10 anim-hidden anim-fade-up ${isHeaderVisible ? "anim-visible" : ""}`}
+      >
       <p
         className="text-xs font-bold uppercase tracking-widest mb-2"
         style={{ color: "#7c3aed" }}
@@ -25,13 +33,17 @@ const Skills = () => (
       />
     </div>
 
-    {/* Grid */}
-    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-screen-lg w-full">
-      {skillData.map((skill, index) => (
-        <SkillCard key={index} name={skill.name} logo={skill.logo} />
-      ))}
+      {/* Grid */}
+      <div 
+        ref={gridRef}
+        className={`grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-screen-lg w-full anim-hidden anim-fade-up anim-delay-200 ${isGridVisible ? "anim-visible" : ""}`}
+      >
+        {skillData.map((skill, index) => (
+          <SkillCard key={index} name={skill.name} logo={skill.logo} />
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Skills;

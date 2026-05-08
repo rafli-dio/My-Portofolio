@@ -1,19 +1,56 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
   const location = useLocation();
   const { theme, toggleTheme } = useTheme();
 
   const links = [
-    { to: "/", label: "About" },
-    { to: "/project", label: "Projects" },
-    { to: "/experience", label: "Experience" },
+    { to: "home", label: "About" },
+    { to: "projects", label: "Projects" },
+    { to: "experience", label: "Experience" },
+    { to: "skills", label: "Skills" },
   ];
 
-  const isActive = (path) => location.pathname === path;
+  useEffect(() => {
+    const handleScroll = () => {
+      if (location.pathname !== "/") return;
+      
+      const scrollPosition = window.scrollY + 120; // Added offset for better trigger
+
+      for (const link of links) {
+        const element = document.getElementById(link.to);
+        if (element) {
+          const { offsetTop, offsetHeight } = element;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(link.to);
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [location.pathname, links]);
+
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+      setIsOpen(false);
+      setActiveSection(id);
+    }
+  };
 
   return (
     <div className="fixed top-0 left-0 w-full z-50">
@@ -28,9 +65,8 @@ const Navbar = () => {
           }}
         >
           {/* Logo */}
-          <Link
-            to="/"
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          <button
+            onClick={() => scrollToSection("home")}
             className="flex items-center gap-1 text-xl font-black tracking-tight"
           >
             <span className="gradient-text">RAFLI</span>
@@ -45,7 +81,7 @@ const Navbar = () => {
             >
               DEV
             </span>
-          </Link>
+          </button>
 
           {/* Right side: Theme toggle + Mobile menu */}
           <div className="flex items-center gap-2 md:hidden">
@@ -70,36 +106,37 @@ const Navbar = () => {
             className={`${isOpen ? "block" : "hidden"} w-full md:flex md:w-auto md:items-center`}
           >
             <ul className="flex flex-col items-center font-medium mt-4 md:mt-0 md:flex-row md:space-x-1">
-              {links.map(({ to, label }) => (
-                <li key={to}>
-                  <Link
-                    to={to}
-                    onClick={() => {
-                      window.scrollTo({ top: 0, behavior: "smooth" });
-                      setIsOpen(false);
-                    }}
-                    className="block py-2 px-4 rounded-lg text-sm font-medium transition-colors duration-200"
-                    style={{
-                      color: isActive(to) ? "var(--accent-text)" : "var(--text-secondary)",
-                      background: isActive(to) ? "var(--accent-bg)" : "transparent",
-                    }}
-                    onMouseEnter={(e) => {
-                      if (!isActive(to)) {
-                        e.currentTarget.style.color = "var(--text-primary)";
-                        e.currentTarget.style.background = "var(--bg-elevated)";
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!isActive(to)) {
-                        e.currentTarget.style.color = "var(--text-secondary)";
-                        e.currentTarget.style.background = "transparent";
-                      }
-                    }}
-                  >
-                    {label}
-                  </Link>
-                </li>
-              ))}
+              {links.map(({ to, label }) => {
+                const active = activeSection === to;
+                return (
+                  <li key={to}>
+                    <button
+                      onClick={() => scrollToSection(to)}
+                      className="relative group block py-2 px-4 rounded-lg text-sm font-medium transition-all duration-200"
+                      style={{
+                        color: active ? "var(--accent-text)" : "var(--text-secondary)",
+                        background: active ? "var(--accent-bg)" : "transparent",
+                      }}
+                    >
+                      {label}
+                      {/* Active Indicator Dot */}
+                      {active && (
+                        <span 
+                          className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full"
+                          style={{ background: "var(--accent-primary)" }}
+                        />
+                      )}
+                      
+                      {!active && (
+                        <span 
+                          className="absolute bottom-1 left-1/2 -translate-x-1/2 w-0 h-1 rounded-full transition-all duration-300 group-hover:w-1"
+                          style={{ background: "var(--text-secondary)" }}
+                        />
+                      )}
+                    </button>
+                  </li>
+                );
+              })}
 
               {/* Theme Toggle - Desktop */}
               <li className="hidden md:flex md:ml-2">

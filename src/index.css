@@ -136,3 +136,64 @@ img, svg, button svg {
 .slick-next:before {
   color: var(--accent-primary) !important;
 }
+
+/* ============================================
+   SCROLL ANIMATIONS
+   ============================================ */
+
+/* Base hidden state — override the global transition so animations work */
+.anim-hidden {
+  opacity: 0;
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.65s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  will-change: opacity, transform;
+}
+
+/* Visible state */
+.anim-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Directions */
+.anim-fade-up    { transform: translateY(40px); }
+.anim-fade-down  { transform: translateY(-40px); }
+.anim-fade-left  { transform: translateX(-50px); }
+.anim-fade-right { transform: translateX(50px); }
+.anim-zoom-in    { transform: scale(0.88); }
+.anim-zoom-up    { transform: scale(0.92) translateY(30px); }
+
+/* Delay utilities */
+.anim-delay-100 { transition-delay: 0.10s !important; }
+.anim-delay-150 { transition-delay: 0.15s !important; }
+.anim-delay-200 { transition-delay: 0.20s !important; }
+.anim-delay-250 { transition-delay: 0.25s !important; }
+.anim-delay-300 { transition-delay: 0.30s !important; }
+.anim-delay-350 { transition-delay: 0.35s !important; }
+.anim-delay-400 { transition-delay: 0.40s !important; }
+.anim-delay-500 { transition-delay: 0.50s !important; }
+.anim-delay-600 { transition-delay: 0.60s !important; }
+
+/* Floating Animation */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.anim-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Typewriter Cursor */
+.typewriter-cursor::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+  margin-left: 4px;
+  color: var(--accent-primary);
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}

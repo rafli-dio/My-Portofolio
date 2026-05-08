@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const frameworkColors = {
   Laravel: { bg: "rgba(239,68,68,0.12)", text: "#dc2626", border: "rgba(239,68,68,0.3)", dot: "#ef4444" },
@@ -23,6 +24,7 @@ const ProjectCard = ({
 }) => {
   const [currentImg, setCurrentImg] = useState(0);
   const [hovered, setHovered] = useState(false);
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   const prevImg = (e) => {
     e.preventDefault();
@@ -35,7 +37,8 @@ const ProjectCard = ({
 
   return (
     <div
-      className="group flex flex-col rounded-2xl overflow-hidden border transition-all duration-300"
+      ref={ref}
+      className={`group flex flex-col rounded-2xl overflow-hidden border transition-all duration-300 anim-hidden anim-fade-up ${isVisible ? "anim-visible" : ""}`}
       style={{
         background: "var(--bg-surface)",
         borderColor: hovered ? "rgba(124,58,237,0.4)" : "var(--border)",
@@ -63,10 +66,11 @@ const ProjectCard = ({
             key={i}
             src={src}
             alt={`${title} screenshot ${i + 1}`}
-            className="absolute inset-0 w-full h-full object-cover transition-all duration-500"
+            className="absolute inset-0 w-full h-full object-cover object-top transition-all duration-500"
             style={{
               opacity: i === currentImg ? 1 : 0,
-              transform: i === currentImg ? "scale(1)" : "scale(1.04)",
+              transform: i === currentImg ? "scale(1)" : "scale(1.05)",
+              zIndex: i === currentImg ? 10 : 0,
             }}
           />
         ))}

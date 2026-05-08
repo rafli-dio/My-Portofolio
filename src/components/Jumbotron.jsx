@@ -1,9 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const Jumbotron = () => {
+  const { ref: textRef, isVisible: isTextVisible } = useScrollAnimation();
+  const { ref: imgRef, isVisible: isImgVisible } = useScrollAnimation({ threshold: 0.1 });
+  
+  const roles = [
+    { p1: "Full Stack", p2: "Developer." },
+    { p1: "Problem", p2: "Solver." }
+  ];
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [displayText, setDisplayText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [speed, setSpeed] = useState(100);
+
+  useEffect(() => {
+    const currentFull = roles[roleIndex].p1 + roles[roleIndex].p2;
+    
+    const timeout = setTimeout(() => {
+      if (isDeleting) {
+        setDisplayText(currentFull.substring(0, displayText.length - 1));
+        setSpeed(50);
+      } else {
+        setDisplayText(currentFull.substring(0, displayText.length + 1));
+        setSpeed(100);
+      }
+
+      if (!isDeleting && displayText === currentFull) {
+        setSpeed(2000); // Pause at end
+        setIsDeleting(true);
+      } else if (isDeleting && displayText === "") {
+        setIsDeleting(false);
+        setRoleIndex((prev) => (prev + 1) % roles.length);
+        setSpeed(500); // Pause before next word
+      }
+    }, speed);
+
+    return () => clearTimeout(timeout);
+  }, [displayText, isDeleting, roleIndex, speed]);
+
   return (
     <div
+      id="home"
       className="relative min-h-screen flex items-center overflow-hidden noise-bg"
       style={{ background: "var(--bg-base)" }}
     >
@@ -26,7 +65,10 @@ const Jumbotron = () => {
       <div className="max-w-screen-xl mx-auto px-4 lg:px-8 py-10 mt-[80px] w-full flex flex-col lg:flex-row justify-between items-center gap-12">
 
         {/* Description Section */}
-        <section className="w-full lg:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left">
+        <section
+          ref={textRef}
+          className={`w-full lg:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left anim-hidden anim-fade-right ${isTextVisible ? "anim-visible" : ""}`}
+        >
 
           {/* Badge */}
           <div
@@ -42,13 +84,18 @@ const Jumbotron = () => {
           </div>
 
           <p className="text-lg lg:text-xl font-medium mb-2" style={{ color: "var(--text-secondary)" }}>
-            Hello, I'm Rafli Dio 👋
+            Hello, I'm Rafli Dio
           </p>
 
-          <h1 className="text-[42px] lg:text-[72px] font-black leading-none tracking-tight mb-6">
-            <span style={{ color: "var(--text-primary)" }}>Software</span>
-            <br />
-            <span className="gradient-text">Developer.</span>
+          <h1 className="text-[42px] lg:text-[72px] font-black leading-none tracking-tight mb-6 min-h-[1.2em] lg:min-h-[2.1em]">
+            <span style={{ color: "var(--text-primary)" }}>
+              {displayText.slice(0, roles[roleIndex].p1.length)}
+            </span>
+            {displayText.length > roles[roleIndex].p1.length && <br />}
+            <span className="gradient-text">
+              {displayText.slice(roles[roleIndex].p1.length)}
+            </span>
+            <span className="typewriter-cursor"></span>
           </h1>
 
           <p className="text-base lg:text-lg leading-relaxed max-w-lg mb-8" style={{ color: "var(--text-secondary)" }}>
@@ -134,8 +181,11 @@ const Jumbotron = () => {
         </section>
 
         {/* Image Section */}
-        <section className="w-full lg:w-[40%] flex justify-center items-center py-10 lg:py-0">
-          <div className="relative">
+        <section
+          ref={imgRef}
+          className={`w-full lg:w-[40%] flex justify-center items-center py-10 lg:py-0 anim-hidden anim-fade-left ${isImgVisible ? "anim-visible" : ""}`}
+        >
+          <div className="relative anim-float">
             {/* Ambient glow */}
             <div
               className="absolute pointer-events-none"

@@ -2,15 +2,21 @@ import React from "react";
 import projectsData from "../data/projects.json";
 import ProjectCard from "../components/ProjectSection";
 import Navbar from "../components/Navbar";
+import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const MoreProject = () => {
+  const { ref: headerRef, isVisible: isHeaderVisible } = useScrollAnimation();
+
   return (
     <div style={{ background: "var(--bg-base)", minHeight: "100vh" }}>
       <Navbar />
       <div className="max-w-screen-xl mx-auto px-4 lg:px-8 py-10 mt-[80px]">
 
         {/* Section Header */}
-        <div className="mb-8">
+        <div 
+          ref={headerRef}
+          className={`mb-8 anim-hidden anim-fade-up ${isHeaderVisible ? "anim-visible" : ""}`}
+        >
           <p
             className="text-xs font-bold uppercase tracking-widest mb-2"
             style={{ color: "#7c3aed" }}
