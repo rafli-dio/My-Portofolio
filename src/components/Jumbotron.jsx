@@ -1,98 +1,209 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+
 const Jumbotron = () => {
   return (
-    <div className="max-w-screen-xl mx-auto px-4 lg:px-6 py-10 flex flex-col lg:flex-row justify-between items-center mt-[50px]">
-      {/* Description Section */}
-      <section className="description-jumbotron w-full lg:w-[60%] p-4 lg:p-[60px]">
-        <h2 className="mt-6 text-[24px] lg:text-[40px] text-center lg:text-left">
-          Hello, I'm Rafli Dio.
-        </h2>
-        <h1 className="text-[30px] lg:text-[70px] font-bold text-center lg:text-left leading-tight">
-          Software Developer.
-        </h1>
-        <p className="mt-6 text-center lg:text-left text-sm lg:text-base">
-          "Hello, my name is Rafli Dio Muhammad Valent. You can call me Rafli. I
-          am a student at Universitas Muhammadiyah Surakarta.have 3 years of
-          experience in web development."
-        </p>
+    <div
+      className="relative min-h-screen flex items-center overflow-hidden noise-bg"
+      style={{ background: "var(--bg-base)" }}
+    >
+      {/* Ambient blobs */}
+      <div
+        className="absolute top-1/4 left-[-100px] w-[500px] h-[500px] rounded-full pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 70%)",
+          filter: "blur(60px)",
+        }}
+      />
+      <div
+        className="absolute bottom-1/4 right-[-80px] w-[400px] h-[400px] rounded-full pointer-events-none"
+        style={{
+          background: "radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%)",
+          filter: "blur(60px)",
+        }}
+      />
 
-        {/* Button Section */}
-        <div className="mt-8 flex justify-center lg:justify-start">
-          <Link to="/experience">
-            <button className="px-6 py-3 bg-black text-white font-semibold rounded-lg shadow-md hover:bg-gray-700 transition">
-              Experience
-            </button>
-          </Link>
-        </div>
-        {/* Social Media Icons */}
-        <div className="mt-[50px] flex space-x-4 text-left  justify-center lg:justify-start">
-          {/* GitHub */}
-          <a
-            href="https://github.com/rafli-dio"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-600 hover:text-black transition"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-12 h-12 text-black"
-            >
-              <path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.5.5.09.66-.22.66-.48 0-.24-.01-.87-.01-1.7-2.78.61-3.37-1.34-3.37-1.34-.45-1.15-1.1-1.46-1.1-1.46-.9-.62.07-.61.07-.61 1 .07 1.52 1.03 1.52 1.03.89 1.51 2.34 1.08 2.91.82.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.99 1.03-2.69-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02A9.65 9.65 0 0112 6.8c.85.01 1.7.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.6 1.03 2.69 0 3.84-2.33 4.69-4.56 4.94.36.31.68.92.68 1.85 0 1.33-.01 2.4-.01 2.72 0 .27.16.58.67.48A10.002 10.002 0 0022 12c0-5.52-4.48-10-10-10z" />
-            </svg>
-          </a>
-          {/* LinkedIn */}
-          <a
-            href="https://www.linkedin.com/in/rafli-dio-3298b0205/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-600 hover:text-blue-700 transition"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-12 h-12 ml-[20px] text-black"
-            >
-              <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zM8.34 19h-2.69v-7.34h2.69v7.34zM6.99 10.48c-.86 0-1.56-.7-1.56-1.56s.7-1.56 1.56-1.56 1.56.7 1.56 1.56-.7 1.56-1.56 1.56zm12.02 8.52h-2.69v-3.81c0-.91-.03-2.08-1.27-2.08s-1.46 1-1.46 2.03v3.86h-2.69v-7.34h2.58v1h.04c.36-.69 1.23-1.42 2.53-1.42 2.7 0 3.2 1.78 3.2 4.09v3.68z" />
-            </svg>
-          </a>
-          {/* Instagram */}
-          <a
-            href="https://www.instagram.com/raflidio_/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-gray-600 hover:text-pink-500 transition"
-          >
-            <svg
-              aria-hidden="true"
-              focusable="false"
-              data-prefix="fab"
-              data-icon="instagram"
-              className="w-12 h-12 ml-[20px] text-black"
-              role="img"
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 448 512"
-            >
-              <path
-                fill="currentColor"
-                d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"
-              ></path>
-            </svg>
-          </a>
-        </div>
-      </section>
+      <div className="max-w-screen-xl mx-auto px-4 lg:px-8 py-10 mt-[80px] w-full flex flex-col lg:flex-row justify-between items-center gap-12">
 
-      {/* Image Section */}
-      <section className="image-jumbotron w-full lg:w-[40%] flex justify-center items-center mb-6 lg:mt-[20px]">
-        <img
-          src="./images/oke-rafli.png" // Ganti dengan path gambar Anda
-          alt="Jumbotron"
-          className="w-full lg:w-[80%] h-auto object-cover"
-        />
-      </section>
+        {/* Description Section */}
+        <section className="w-full lg:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left">
+
+          {/* Badge */}
+          <div
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold mb-6 border"
+            style={{
+              background: "var(--accent-bg)",
+              borderColor: "var(--accent-border)",
+              color: "var(--accent-text)",
+            }}
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
+            Available for opportunities
+          </div>
+
+          <p className="text-lg lg:text-xl font-medium mb-2" style={{ color: "var(--text-secondary)" }}>
+            Hello, I'm Rafli Dio 👋
+          </p>
+
+          <h1 className="text-[42px] lg:text-[72px] font-black leading-none tracking-tight mb-6">
+            <span style={{ color: "var(--text-primary)" }}>Software</span>
+            <br />
+            <span className="gradient-text">Developer.</span>
+          </h1>
+
+          <p className="text-base lg:text-lg leading-relaxed max-w-lg mb-8" style={{ color: "var(--text-secondary)" }}>
+            I'm <strong style={{ color: "var(--text-primary)" }}>Rafli Dio Muhammad Valent</strong>, a web developer and student at Universitas Muhammadiyah Surakarta with 3+ years of experience crafting modern web applications.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-wrap gap-3 justify-center lg:justify-start mb-10">
+            <Link to="/experience">
+              <button
+                className="inline-flex items-center gap-2 px-6 py-3 font-semibold rounded-xl text-white transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+                style={{
+                  background: "linear-gradient(135deg, #7c3aed, #6366f1)",
+                  boxShadow: "0 4px 20px rgba(124, 58, 237, 0.35)",
+                }}
+              >
+                <i className="fa-solid fa-briefcase text-sm" />
+                View Experience
+              </button>
+            </Link>
+            <Link to="/project">
+              <button
+                className="inline-flex items-center gap-2 px-6 py-3 font-semibold rounded-xl transition-all duration-300 hover:-translate-y-0.5 border"
+                style={{
+                  background: "var(--accent-bg)",
+                  borderColor: "var(--accent-border)",
+                  color: "var(--accent-text)",
+                }}
+              >
+                <i className="fa-solid fa-code text-sm" />
+                See Projects
+              </button>
+            </Link>
+          </div>
+
+          {/* Social Links */}
+          <div className="flex items-center gap-3">
+            {[
+              {
+                href: "https://github.com/rafli-dio",
+                icon: "fa-brands fa-github",
+                label: "GitHub",
+                hoverColor: "var(--text-primary)",
+              },
+              {
+                href: "https://www.linkedin.com/in/rafli-dio-3298b0205/",
+                icon: "fa-brands fa-linkedin-in",
+                label: "LinkedIn",
+                hoverColor: "#60a5fa",
+              },
+              {
+                href: "https://www.instagram.com/raflidio_/",
+                icon: "fa-brands fa-instagram",
+                label: "Instagram",
+                hoverColor: "#f472b6",
+              },
+            ].map(({ href, icon, label, hoverColor }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                title={label}
+                className="flex items-center justify-center w-11 h-11 rounded-xl border transition-all duration-300 hover:-translate-y-1"
+                style={{
+                  background: "var(--bg-elevated)",
+                  borderColor: "var(--border)",
+                  color: "var(--text-secondary)",
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = hoverColor;
+                  e.currentTarget.style.borderColor = "var(--accent-border)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = "var(--text-secondary)";
+                  e.currentTarget.style.borderColor = "var(--border)";
+                }}
+              >
+                <i className={`${icon} text-lg`} />
+              </a>
+            ))}
+          </div>
+        </section>
+
+        {/* Image Section */}
+        <section className="w-full lg:w-[40%] flex justify-center items-center py-10 lg:py-0">
+          <div className="relative">
+            {/* Ambient glow */}
+            <div
+              className="absolute pointer-events-none"
+              style={{
+                inset: "-40px",
+                background: "radial-gradient(circle, rgba(124,58,237,0.25) 0%, transparent 65%)",
+                filter: "blur(30px)",
+              }}
+            />
+
+            {/* Corner accents */}
+            <div
+              className="absolute -top-3 -left-3 w-14 h-14 rounded-tl-2xl pointer-events-none z-10"
+              style={{
+                borderTop: "2px solid rgba(124,58,237,0.6)",
+                borderLeft: "2px solid rgba(124,58,237,0.6)",
+              }}
+            />
+            <div
+              className="absolute -bottom-3 -right-3 w-14 h-14 rounded-br-2xl pointer-events-none z-10"
+              style={{
+                borderBottom: "2px solid rgba(124,58,237,0.6)",
+                borderRight: "2px solid rgba(124,58,237,0.6)",
+              }}
+            />
+
+            {/* Image frame */}
+            <div
+              className="relative overflow-hidden rounded-2xl border"
+              style={{
+                width: "280px",
+                height: "340px",
+                borderColor: "rgba(124, 58, 237, 0.35)",
+                boxShadow: "0 20px 60px rgba(124, 58, 237, 0.2), 0 0 0 1px rgba(124,58,237,0.08)",
+              }}
+            >
+              <img
+                src="./images/oke-rafli.png"
+                alt="Rafli Dio Muhammad Valent - Software Developer"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  objectPosition: "center top",
+                  display: "block",
+                }}
+              />
+              <div
+                className="absolute bottom-0 left-0 right-0 h-1/4 pointer-events-none"
+                style={{ background: "linear-gradient(to top, rgba(8,8,15,0.45), transparent)" }}
+              />
+            </div>
+
+            {/* Floating badge */}
+            <div
+              className="absolute -bottom-5 left-1/2 -translate-x-1/2 whitespace-nowrap inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold border shadow-xl z-10"
+              style={{
+                background: "var(--bg-elevated)",
+                borderColor: "var(--accent-border)",
+                color: "var(--accent-text)",
+              }}
+            >
+              <i className="fa-solid fa-star text-yellow-400 text-[10px]" />
+              3+ Years Experience
+            </div>
+          </div>
+        </section>
+      </div>
     </div>
   );
 };

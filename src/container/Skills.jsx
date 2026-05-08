@@ -3,10 +3,30 @@ import SkillCard from "../components/SkillCard";
 import skillData from "../data/skilss.json";
 
 const Skills = () => (
-  <div className="flex flex-col items-center p-6">
-    {/* Header H2 */}
-    <h2 className="text-4xl font-bold mb-6">Skills</h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-screen-lg">
+  <div className="flex flex-col items-center py-10 px-4">
+    {/* Header */}
+    <div className="text-center mb-10">
+      <p
+        className="text-xs font-bold uppercase tracking-widest mb-2"
+        style={{ color: "#7c3aed" }}
+      >
+        ✦ Tech Stack
+      </p>
+      <h2
+        className="text-3xl lg:text-4xl font-black"
+        style={{ color: "var(--text-primary)" }}
+      >
+        Skills &amp;{" "}
+        <span className="gradient-text">Technologies</span>
+      </h2>
+      <div
+        className="mx-auto mt-3 w-16 h-[3px] rounded-full"
+        style={{ background: "linear-gradient(90deg, #7c3aed, #6366f1)" }}
+      />
+    </div>
+
+    {/* Grid */}
+    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 max-w-screen-lg w-full">
       {skillData.map((skill, index) => (
         <SkillCard key={index} name={skill.name} logo={skill.logo} />
       ))}
