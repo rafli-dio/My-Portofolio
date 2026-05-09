@@ -2,21 +2,23 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import useScrollAnimation from "../hooks/useScrollAnimation";
 
+const ROLES = [
+  { p1: "Full Stack", p2: "Developer." },
+  { p1: "Problem",    p2: "Solver." },
+];
+
 const Jumbotron = () => {
   const { ref: textRef, isVisible: isTextVisible } = useScrollAnimation();
   const { ref: imgRef, isVisible: isImgVisible } = useScrollAnimation({ threshold: 0.1 });
 
-  const roles = [
-    { p1: "Full Stack", p2: "Developer." },
-    { p1: "Problem", p2: "Solver." }
-  ];
   const [roleIndex, setRoleIndex] = useState(0);
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [speed, setSpeed] = useState(100);
 
+
   useEffect(() => {
-    const currentFull = roles[roleIndex].p1 + roles[roleIndex].p2;
+    const currentFull = ROLES[roleIndex].p1 + ROLES[roleIndex].p2;
 
     const timeout = setTimeout(() => {
       if (isDeleting) {
@@ -28,12 +30,12 @@ const Jumbotron = () => {
       }
 
       if (!isDeleting && displayText === currentFull) {
-        setSpeed(2000); // Pause at end
+        setSpeed(2000);
         setIsDeleting(true);
       } else if (isDeleting && displayText === "") {
         setIsDeleting(false);
-        setRoleIndex((prev) => (prev + 1) % roles.length);
-        setSpeed(500); // Pause before next word
+        setRoleIndex((prev) => (prev + 1) % ROLES.length);
+        setSpeed(500);
       }
     }, speed);
 
@@ -89,11 +91,11 @@ const Jumbotron = () => {
 
           <h1 className="text-[42px] lg:text-[72px] font-black leading-none tracking-tight mb-6 min-h-[1.2em] lg:min-h-[2.1em]">
             <span style={{ color: "var(--text-primary)" }}>
-              {displayText.slice(0, roles[roleIndex].p1.length)}
+              {displayText.slice(0, ROLES[roleIndex].p1.length)}
             </span>
-            {displayText.length > roles[roleIndex].p1.length && <br />}
+            {displayText.length > ROLES[roleIndex].p1.length && <br />}
             <span className="gradient-text">
-              {displayText.slice(roles[roleIndex].p1.length)}
+              {displayText.slice(ROLES[roleIndex].p1.length)}
             </span>
             <span className="typewriter-cursor"></span>
           </h1>

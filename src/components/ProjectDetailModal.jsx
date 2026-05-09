@@ -27,19 +27,20 @@ const ProjectDetailModal = ({ project, onClose }) => {
     return () => { document.body.style.overflow = ""; };
   }, []);
 
+  // Close with animation
+  const handleClose = useCallback(() => {
+    setVisible(false);
+    setTimeout(onClose, 280);
+  }, [onClose]);
+
   // Close on Escape key
   const handleKey = useCallback((e) => {
     if (e.key === "Escape") handleClose();
-  }, []);
+  }, [handleClose]);
   useEffect(() => {
     window.addEventListener("keydown", handleKey);
     return () => window.removeEventListener("keydown", handleKey);
   }, [handleKey]);
-
-  const handleClose = () => {
-    setVisible(false);
-    setTimeout(onClose, 280);
-  };
 
   if (!project) return null;
 

@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
+
+const NAV_LINKS = [
+  { to: "home",       label: "About",      route: null },
+  { to: "projects",   label: "Projects",   route: "/project" },
+  { to: "experience", label: "Experience", route: "/experience" },
+  { to: "skills",     label: "Skills",     route: null },
+];
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,13 +16,6 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { theme, toggleTheme } = useTheme();
   const isHomePage = location.pathname === "/";
-
-  const links = [
-    { to: "home",       label: "About",      route: null },
-    { to: "projects",   label: "Projects",   route: "/project" },
-    { to: "experience", label: "Experience", route: "/experience" },
-    { to: "skills",     label: "Skills",     route: null },
-  ];
 
   // Determine if a nav item should appear active
   const isActive = (link) => {
@@ -29,7 +29,7 @@ const Navbar = () => {
       
       const scrollPosition = window.scrollY + 120;
 
-      for (const link of links) {
+      for (const link of NAV_LINKS) {
         const element = document.getElementById(link.to);
         if (element) {
           const { offsetTop, offsetHeight } = element;
@@ -132,7 +132,7 @@ const Navbar = () => {
             className={`${isOpen ? "block" : "hidden"} w-full md:flex md:w-auto md:items-center`}
           >
             <ul className="flex flex-col items-center font-medium mt-4 md:mt-0 md:flex-row md:space-x-1">
-              {links.map(({ to, label, route }) => {
+              {NAV_LINKS.map(({ to, label, route }) => {
                 const active = isActive({ to, route });
                 return (
                   <li key={to}>
