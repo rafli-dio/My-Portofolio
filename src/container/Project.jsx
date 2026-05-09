@@ -49,12 +49,14 @@ const Projects = ({ hideNavbar = false }) => {
           {projectsData.slice(0, 3).map((project, index) => (
             <ProjectCard
               key={index}
+              project={project}
               index={index}
               title={project.title}
               description={project.description}
               imageSrcs={project.imageSrcs}
               frameworks={project.frameworks}
               githubLink={project.githubLink}
+              category={project.category}
             />
           ))}
         </div>

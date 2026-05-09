@@ -5,7 +5,7 @@ import useScrollAnimation from "../hooks/useScrollAnimation";
 const Jumbotron = () => {
   const { ref: textRef, isVisible: isTextVisible } = useScrollAnimation();
   const { ref: imgRef, isVisible: isImgVisible } = useScrollAnimation({ threshold: 0.1 });
-  
+
   const roles = [
     { p1: "Full Stack", p2: "Developer." },
     { p1: "Problem", p2: "Solver." }
@@ -17,7 +17,7 @@ const Jumbotron = () => {
 
   useEffect(() => {
     const currentFull = roles[roleIndex].p1 + roles[roleIndex].p2;
-    
+
     const timeout = setTimeout(() => {
       if (isDeleting) {
         setDisplayText(currentFull.substring(0, displayText.length - 1));
@@ -99,7 +99,7 @@ const Jumbotron = () => {
           </h1>
 
           <p className="text-base lg:text-lg leading-relaxed max-w-lg mb-8" style={{ color: "var(--text-secondary)" }}>
-            I'm <strong style={{ color: "var(--text-primary)" }}>Rafli Dio Muhammad Valent</strong>, a web developer and student at Universitas Muhammadiyah Surakarta with 3+ years of experience crafting modern web applications.
+            I'm <strong style={{ color: "var(--text-primary)" }}>Rafli Dio Muhammad Valent</strong>, a web developer with 3+ years of experience crafting modern web applications.
           </p>
 
           {/* CTA Buttons */}

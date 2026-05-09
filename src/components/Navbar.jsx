@@ -1,25 +1,33 @@
 import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const location = useLocation();
+  const navigate = useNavigate();
   const { theme, toggleTheme } = useTheme();
+  const isHomePage = location.pathname === "/";
 
   const links = [
-    { to: "home", label: "About" },
-    { to: "projects", label: "Projects" },
-    { to: "experience", label: "Experience" },
-    { to: "skills", label: "Skills" },
+    { to: "home",       label: "About",      route: null },
+    { to: "projects",   label: "Projects",   route: "/project" },
+    { to: "experience", label: "Experience", route: "/experience" },
+    { to: "skills",     label: "Skills",     route: null },
   ];
+
+  // Determine if a nav item should appear active
+  const isActive = (link) => {
+    if (isHomePage) return activeSection === link.to;
+    return link.route === location.pathname;
+  };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (location.pathname !== "/") return;
+      if (!isHomePage) return;
       
-      const scrollPosition = window.scrollY + 120; // Added offset for better trigger
+      const scrollPosition = window.scrollY + 120;
 
       for (const link of links) {
         const element = document.getElementById(link.to);
@@ -34,21 +42,39 @@ const Navbar = () => {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [location.pathname, links]);
+  }, [isHomePage]);
 
+  // Smooth scroll to section (only works on home page)
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
     if (element) {
       const offset = 80;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+    }
+    setIsOpen(false);
+    setActiveSection(id);
+  };
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth"
-      });
+  // Navigate to home page then scroll to section
+  const handleNavClick = (id) => {
+    if (isHomePage) {
+      scrollToSection(id);
+    } else {
+      // Navigate to home, then scroll after page loads
+      navigate("/");
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          const offset = 80;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - offset;
+          window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+        }
+        setActiveSection(id);
+      }, 100);
       setIsOpen(false);
-      setActiveSection(id);
     }
   };
 
@@ -66,7 +92,7 @@ const Navbar = () => {
         >
           {/* Logo */}
           <button
-            onClick={() => scrollToSection("home")}
+            onClick={() => handleNavClick("home")}
             className="flex items-center gap-1 text-xl font-black tracking-tight"
           >
             <span className="gradient-text">RAFLI</span>
@@ -106,12 +132,12 @@ const Navbar = () => {
             className={`${isOpen ? "block" : "hidden"} w-full md:flex md:w-auto md:items-center`}
           >
             <ul className="flex flex-col items-center font-medium mt-4 md:mt-0 md:flex-row md:space-x-1">
-              {links.map(({ to, label }) => {
-                const active = activeSection === to;
+              {links.map(({ to, label, route }) => {
+                const active = isActive({ to, route });
                 return (
                   <li key={to}>
                     <button
-                      onClick={() => scrollToSection(to)}
+                      onClick={() => handleNavClick(to)}
                       className="relative group block py-2 px-4 rounded-lg text-sm font-medium transition-all duration-200"
                       style={{
                         color: active ? "var(--accent-text)" : "var(--text-secondary)",

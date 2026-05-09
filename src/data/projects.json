@@ -1,7 +1,21 @@
 [
   {
     "title": "Hotel Danz",
-    "description": "Sistem Manajemen “Hotel Danz” adalah aplikasi Laravel untuk registrasi tamu, reservasi kamar, manajemen peran, dan CRUD kamar, dirancang untuk efisiensi hotel.",
+    "category": "Tugas Akhir Mata Kuliah",
+    "year": "2024",
+    "role": "Full Stack Developer",
+    "description": "Sistem Manajemen Hotel Danz adalah aplikasi Laravel untuk registrasi tamu, reservasi kamar, manajemen peran, dan CRUD kamar, dirancang untuk efisiensi hotel.",
+    "fullDescription": "Hotel Danz adalah sistem manajemen hotel berbasis web yang dikembangkan menggunakan framework Laravel. Aplikasi ini dirancang untuk mempermudah pengelolaan operasional hotel secara digital, mulai dari pendaftaran tamu, pemesanan kamar, hingga manajemen pengguna dengan berbagai peran akses. Sistem ini memiliki dua level akses yaitu Admin dan Resepsionis, masing-masing dengan hak akses yang berbeda untuk menjaga keamanan data.",
+    "features": [
+      "Registrasi & manajemen data tamu",
+      "Sistem reservasi kamar real-time",
+      "Manajemen peran (Admin & Resepsionis)",
+      "CRUD kamar dengan upload foto",
+      "Laporan histori pemesanan",
+      "Dashboard statistik hotel",
+      "Autentikasi & otorisasi pengguna"
+    ],
+    "database": "MySQL",
     "imageSrcs": [
       "./images/hoteldanz-home.png",
       "./images/hoteldanz-room.png",
@@ -12,7 +26,21 @@
   },
   {
     "title": "Dunia Fauna",
+    "category": "Tugas Akhir Mata Kuliah",
+    "year": "2023",
+    "role": "Full Stack Developer",
     "description": "Website pembelajaran interaktif pengenalan hewan untuk anak-anak, dibuat menggunakan framework Laravel.",
+    "fullDescription": "Dunia Fauna adalah platform pembelajaran interaktif berbasis web yang ditujukan untuk anak-anak dalam mengenal berbagai jenis hewan. Website ini hadir dengan tampilan yang menarik dan ramah anak, dilengkapi dengan informasi edukatif tentang habitat, makanan, dan fakta unik dari setiap hewan. Konten dikelola melalui panel admin yang memudahkan guru atau orang tua untuk menambahkan materi baru.",
+    "features": [
+      "Ensiklopedia hewan interaktif",
+      "Tampilan UI ramah anak",
+      "Kategorisasi hewan berdasarkan jenis",
+      "Halaman detail setiap hewan",
+      "Panel admin untuk manajemen konten",
+      "Pencarian hewan cepat",
+      "Gambar & fakta unik tiap hewan"
+    ],
+    "database": "MySQL",
     "imageSrcs": [
       "./images/duniafauna-home.png",
       "./images/duniafauna-list.png",
@@ -23,7 +51,21 @@
   },
   {
     "title": "Booking Lapangan",
+    "category": "Tugas Akhir Mata Kuliah",
+    "year": "2023",
+    "role": "Full Stack Developer",
     "description": "Website untuk pemesanan lapangan olahraga secara online, dilengkapi dengan fitur jadwal, formulir pemesanan. Dibangun menggunakan framework Laravel dan Bootstrap.",
+    "fullDescription": "Booking Lapangan adalah aplikasi web untuk pemesanan lapangan olahraga secara online yang memudahkan pengguna dalam melihat ketersediaan lapangan dan melakukan reservasi tanpa harus datang langsung. Sistem ini mendukung berbagai jenis lapangan olahraga dan dilengkapi dengan fitur manajemen jadwal serta konfirmasi pemesanan oleh admin.",
+    "features": [
+      "Pemesanan lapangan secara online",
+      "Cek ketersediaan jadwal real-time",
+      "Formulir pemesanan dengan validasi",
+      "Manajemen berbagai jenis lapangan",
+      "Konfirmasi & penolakan booking oleh admin",
+      "Histori pemesanan pengguna",
+      "Notifikasi status pemesanan"
+    ],
+    "database": "MySQL",
     "imageSrcs": ["./images/lapangan-view.png", "./images/lapangan-form.png"],
     "frameworks": ["Laravel", "Bootstrap"],
     "githubLink": "https://github.com/rafli-dio/booking-lapangan"

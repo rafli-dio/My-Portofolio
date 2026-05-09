@@ -2,6 +2,7 @@ import React from "react";
 import projectsData from "../data/projects.json";
 import ProjectCard from "../components/ProjectSection";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const MoreProject = () => {
@@ -47,16 +48,19 @@ const MoreProject = () => {
           {projectsData.map((project, index) => (
             <ProjectCard
               key={index}
+              project={project}
               index={index}
               title={project.title}
               description={project.description}
               imageSrcs={project.imageSrcs}
               frameworks={project.frameworks}
               githubLink={project.githubLink}
+              category={project.category}
             />
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
