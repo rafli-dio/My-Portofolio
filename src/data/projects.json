@@ -21,7 +21,10 @@
       "./images/hoteldanz-room.png",
       "./images/hoteldanz-booking.png"
     ],
-    "frameworks": ["Laravel", "TailwindCSS"],
+    "frameworks": [
+      "Laravel",
+      "TailwindCSS"
+    ],
     "githubLink": "https://github.com/rafli-dio/hotel-danz-part2"
   },
   {
@@ -46,7 +49,9 @@
       "./images/duniafauna-list.png",
       "./images/duniafauna-page.png"
     ],
-    "frameworks": ["Laravel"],
+    "frameworks": [
+      "Laravel"
+    ],
     "githubLink": "https://github.com/rafli-dio/dunia-fauna"
   },
   {
@@ -66,8 +71,46 @@
       "Notifikasi status pemesanan"
     ],
     "database": "MySQL",
-    "imageSrcs": ["./images/lapangan-view.png", "./images/lapangan-form.png"],
-    "frameworks": ["Laravel", "Bootstrap"],
+    "imageSrcs": [
+      "./images/lapangan-view.png",
+      "./images/lapangan-form.png"
+    ],
+    "frameworks": [
+      "Laravel",
+      "Bootstrap"
+    ],
     "githubLink": "https://github.com/rafli-dio/booking-lapangan"
+  },
+  {
+    "title": "Website MainDiHatta - Booking Lapangan Basket Hatta Sport Center",
+    "category": "Projek Skripsi",
+    "year": "2026",
+    "role": "Full Stack Developer",
+    "description": "Website pemesanan lapangan basket berbasis web untuk Hatta Sport Center, dibangun dengan Next.js dan Laravel REST API. Proyek skripsi yang menghadirkan sistem booking real-time, manajemen jadwal, serta dashboard admin yang komprehensif.",
+    "fullDescription": "MainDiHatta adalah sistem informasi pemesanan lapangan basket berbasis web yang dikembangkan sebagai proyek skripsi untuk Hatta Sport Center. Website ini dibangun dengan arsitektur modern menggunakan Next.js sebagai frontend dan Laravel sebagai REST API backend. Aplikasi ini memungkinkan pelanggan untuk memesan lapangan basket secara online dengan memilih jadwal yang tersedia, melakukan pembayaran, serta memantau status reservasi secara real-time. Di sisi admin, tersedia dashboard lengkap untuk mengelola pemesanan, lapangan, jadwal, pengguna, serta laporan pendapatan. Sistem ini juga dilengkapi dengan fitur notifikasi, riwayat transaksi, dan manajemen pemeliharaan lapangan untuk mendukung operasional harian venue secara efisien.",
+    "features": [
+      "Pemesanan lapangan basket secara online",
+      "Cek ketersediaan jadwal real-time",
+      "Sistem autentikasi pengguna (Login & Register)",
+      "Manajemen pemeliharaan & status lapangan",
+      "Konfirmasi & penolakan booking oleh admin",
+      "Dashboard admin dengan statistik & laporan",
+      "Riwayat & histori pemesanan pengguna",
+      "Manajemen data pengguna oleh admin",
+      "REST API berbasis Laravel",
+      "Desain responsif dengan TailwindCSS"
+    ],
+    "database": "MySQL",
+    "imageSrcs": [
+      "./images/maindihatta-home.png",
+      "./images/maindihatta-booking.png",
+      "./images/maindihatta-dashboard.png"
+    ],
+    "frameworks": [
+      "Next.js",
+      "TailwindCSS",
+      "Laravel"
+    ],
+    "githubLink": "https://github.com/rafli-dio/maindihatta"
   }
 ]
