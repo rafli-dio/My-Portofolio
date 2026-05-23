@@ -57,8 +57,8 @@ const ProjectCard = ({
       >
         {/* ── IMAGE ── */}
         <div
-          className="relative w-full overflow-hidden"
-          style={{ height: "200px", background: "var(--bg-elevated)" }}
+          className="relative w-full overflow-hidden aspect-video"
+          style={{ background: "var(--bg-elevated)" }}
         >
           {/* Top accent bar */}
           <div
@@ -71,7 +71,7 @@ const ProjectCard = ({
               key={i}
               src={src}
               alt={`${title} screenshot ${i + 1}`}
-              className="absolute inset-0 w-full h-full object-cover object-top transition-all duration-500"
+              className="absolute inset-0 w-full h-full object-contain object-center p-2 transition-all duration-500"
               style={{
                 opacity:   i === currentImg ? 1 : 0,
                 transform: i === currentImg ? "scale(1)" : "scale(1.05)",

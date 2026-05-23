@@ -118,7 +118,7 @@ const ProjectDetailModal = ({ project, onClose }) => {
                   display:    i === activeImg ? "block" : "none",
                   maxHeight:  "420px",
                   objectFit:  "contain",
-                  objectPosition: "center top",
+                  objectPosition: "center",
                   background: "var(--bg-elevated)",
                 }}
               />
@@ -318,7 +318,7 @@ const ProjectDetailModal = ({ project, onClose }) => {
                             height: "40px",
                           }}
                         >
-                          <img src={src} alt={`thumb ${i + 1}`} className="w-full h-full object-cover object-top" />
+                          <img src={src} alt={`thumb ${i + 1}`} className="w-full h-full object-contain object-center p-0.5" />
                         </button>
                       ))}
                     </div>

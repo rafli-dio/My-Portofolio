@@ -88,13 +88,13 @@ const Experience = ({ hideNavbar = false }) => {
             {/* Timeline */}
             <div className="flex flex-col">
               {workItems.map((item, i) => (
-                <div key={i} className={`flex gap-4 items-stretch ${i < workItems.length - 1 ? "pb-6" : ""}`}>
+                <div key={i} className="flex gap-4 items-stretch">
 
                   {/* Left: line + dot column */}
                   <div className="flex flex-col items-center flex-shrink-0" style={{ width: "20px" }}>
                     {/* Dot */}
                     <div
-                      className="w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 mt-1"
+                      className="w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 mt-1 z-10"
                       style={{
                         background: "var(--bg-base)",
                         borderColor: "#7c3aed",
@@ -106,52 +106,54 @@ const Experience = ({ hideNavbar = false }) => {
                     {/* Connector line (only if not last item) */}
                     {i < workItems.length - 1 && (
                       <div
-                        className="flex-1 w-[2px] rounded-full mt-1"
-                        style={{ background: "linear-gradient(to bottom, #7c3aed, rgba(124,58,237,0.3))" }}
+                        className="w-[2px] -mb-1 mt-1 z-0"
+                        style={{ background: "linear-gradient(to bottom, #7c3aed, rgba(124,58,237,0.3))", flex: "1 1 0%" }}
                       />
                     )}
                   </div>
 
-                  {/* Card */}
-                  <div
-                    className="flex-1 p-5 rounded-xl border"
-                    style={{
-                      background: "var(--bg-surface)",
-                      borderColor: "var(--border)",
-                    }}
-                  >
-                    <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
-                      <div>
-                        <h3
-                          className="font-bold text-base"
-                          style={{ color: "var(--text-primary)" }}
-                        >
-                          {item.company}
-                        </h3>
+                  {/* Card wrapper */}
+                  <div className={`flex-1 ${i < workItems.length - 1 ? "pb-6" : ""}`}>
+                    <div
+                      className="p-5 rounded-xl border h-full"
+                      style={{
+                        background: "var(--bg-surface)",
+                        borderColor: "var(--border)",
+                      }}
+                    >
+                      <div className="flex flex-wrap items-start justify-between gap-2 mb-2">
+                        <div>
+                          <h3
+                            className="font-bold text-base"
+                            style={{ color: "var(--text-primary)" }}
+                          >
+                            {item.company}
+                          </h3>
+                          <span
+                            className="text-xs font-semibold px-2 py-0.5 rounded-full"
+                            style={{
+                              background: "rgba(124,58,237,0.12)",
+                              color: "#a78bfa",
+                              border: "1px solid rgba(124,58,237,0.25)",
+                            }}
+                          >
+                            {item.role}
+                          </span>
+                        </div>
                         <span
-                          className="text-xs font-semibold px-2 py-0.5 rounded-full"
-                          style={{
-                            background: "rgba(124,58,237,0.12)",
-                            color: "#a78bfa",
-                            border: "1px solid rgba(124,58,237,0.25)",
-                          }}
+                          className="text-xs font-medium"
+                          style={{ color: "var(--text-secondary)" }}
                         >
-                          {item.role}
+                          {item.period}
                         </span>
                       </div>
-                      <span
-                        className="text-xs font-medium"
+                      <p
+                        className="text-sm mt-2"
                         style={{ color: "var(--text-secondary)" }}
                       >
-                        {item.period}
-                      </span>
+                        {item.description}
+                      </p>
                     </div>
-                    <p
-                      className="text-sm mt-2"
-                      style={{ color: "var(--text-secondary)" }}
-                    >
-                      {item.description}
-                    </p>
                   </div>
                 </div>
               ))}
