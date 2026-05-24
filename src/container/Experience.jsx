@@ -5,6 +5,12 @@ import useScrollAnimation from "../hooks/useScrollAnimation";
 
 const workItems = [
   {
+    period: "2023 - Sekarang",
+    company: "Freelance",
+    role: "Full Stack Developer",
+    description: "Bekerja secara lepas (freelance) dalam mengembangkan berbagai proyek aplikasi dan website.",
+  },
+  {
     period: "Februari – April 2025",
     company: "Kantor Pertanahan ATR / BPN Kota Surakarta",
     role: "Internship",
@@ -91,14 +97,15 @@ const Experience = ({ hideNavbar = false }) => {
                 <div key={i} className="flex gap-4 items-stretch">
 
                   {/* Left: line + dot column */}
-                  <div className="flex flex-col items-center flex-shrink-0" style={{ width: "20px" }}>
+                  <div className="relative flex flex-col items-center flex-shrink-0" style={{ width: "20px" }}>
                     {/* Dot */}
                     <div
-                      className="w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 mt-1 z-10"
+                      className="w-4 h-4 rounded-full border-2 flex items-center justify-center flex-shrink-0 z-10"
                       style={{
                         background: "var(--bg-base)",
                         borderColor: "#7c3aed",
                         boxShadow: "0 0 10px rgba(124,58,237,0.4)",
+                        marginTop: "1.25rem" // Align with card padding (p-5 = 1.25rem)
                       }}
                     >
                       <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#7c3aed" }} />
@@ -106,8 +113,12 @@ const Experience = ({ hideNavbar = false }) => {
                     {/* Connector line (only if not last item) */}
                     {i < workItems.length - 1 && (
                       <div
-                        className="w-[2px] -mb-1 mt-1 z-0"
-                        style={{ background: "linear-gradient(to bottom, #7c3aed, rgba(124,58,237,0.3))", flex: "1 1 0%" }}
+                        className="absolute w-[2px] z-0"
+                        style={{ 
+                          top: "2.25rem", // Starts below the dot (mt 1.25rem + h 1rem)
+                          bottom: "-1.25rem", // Extends exactly to the next dot's top
+                          background: "linear-gradient(to bottom, #7c3aed, rgba(124,58,237,0.3))" 
+                        }}
                       />
                     )}
                   </div>

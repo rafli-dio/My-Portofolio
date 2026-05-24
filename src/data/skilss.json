@@ -16,6 +16,10 @@
     "logo": "devicon-php-plain text-6xl"
   },
   {
+    "name": "TypeScript",
+    "logo": "devicon-typescript-plain text-6xl"
+  },
+  {
     "name": "Bootstrap",
     "logo": "devicon-bootstrap-plain text-6xl"
   },
@@ -47,4 +51,5 @@
     "name": "Figma",
     "logo": "devicon-figma-plain text-6xl"
   }
+  
 ]
