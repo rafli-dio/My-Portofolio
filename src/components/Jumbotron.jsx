@@ -64,12 +64,12 @@ const Jumbotron = () => {
         }}
       />
 
-      <div className="max-w-screen-xl mx-auto px-4 lg:px-8 py-10 mt-[80px] w-full flex flex-col lg:flex-row justify-between items-center gap-12">
+      <div className="max-w-5xl mx-auto px-4 lg:px-8 py-10 w-full flex flex-col lg:flex-row justify-center items-center gap-12 lg:gap-16">
 
         {/* Description Section */}
         <section
           ref={textRef}
-          className={`w-full lg:w-[55%] flex flex-col items-center lg:items-start text-center lg:text-left anim-hidden anim-fade-right ${isTextVisible ? "anim-visible" : ""}`}
+          className={`w-full lg:w-[60%] flex flex-col items-center lg:items-start text-center lg:text-left anim-hidden anim-fade-right ${isTextVisible ? "anim-visible" : ""}`}
         >
 
           {/* Badge */}
