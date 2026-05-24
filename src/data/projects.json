@@ -28,6 +28,64 @@
     "githubLink": "https://github.com/rafli-dio/hotel-danz-part2"
   },
   {
+    "title": "Website MainDiHatta - Booking Lapangan Basket Hatta Sport Center",
+    "category": "Projek Skripsi",
+    "year": "2026",
+    "role": "Full Stack Developer",
+    "description": "Website pemesanan lapangan basket berbasis web untuk Hatta Sport Center, dibangun dengan Next.js dan Laravel REST API. Proyek skripsi yang menghadirkan sistem booking real-time, manajemen jadwal, serta dashboard admin yang komprehensif.",
+    "fullDescription": "MainDiHatta adalah sistem informasi pemesanan lapangan basket berbasis web yang dikembangkan sebagai proyek skripsi untuk Hatta Sport Center. Website ini dibangun dengan arsitektur modern menggunakan Next.js sebagai frontend dan Laravel sebagai REST API backend. Aplikasi ini memungkinkan pelanggan untuk memesan lapangan basket secara online dengan memilih jadwal yang tersedia, melakukan pembayaran, serta memantau status reservasi secara real-time. Di sisi admin, tersedia dashboard lengkap untuk mengelola pemesanan, lapangan, jadwal, pengguna, serta laporan pendapatan. Sistem ini juga dilengkapi dengan fitur notifikasi, riwayat transaksi, dan manajemen pemeliharaan lapangan untuk mendukung operasional harian venue secara efisien.",
+    "features": [
+      "Pemesanan lapangan basket secara online",
+      "Cek ketersediaan jadwal real-time",
+      "Sistem autentikasi pengguna (Login & Register)",
+      "Manajemen pemeliharaan & status lapangan",
+      "Konfirmasi & penolakan booking oleh admin",
+      "Dashboard admin dengan statistik & laporan",
+      "Riwayat & histori pemesanan pengguna",
+      "Manajemen data pengguna oleh admin",
+      "REST API berbasis Laravel",
+      "Desain responsif dengan TailwindCSS"
+    ],
+    "database": "MySQL",
+    "imageSrcs": [
+      "./images/maindihatta-home.png",
+      "./images/maindihatta-booking.png",
+      "./images/maindihatta-dashboard.png"
+    ],
+    "frameworks": [
+      "Next.js",
+      "TailwindCSS",
+      "Laravel"
+    ],
+    "githubLink": "https://github.com/rafli-dio/maindihatta"
+  },
+  
+  {
+    "title": "Website Morals - Web Profile Band",
+    "category": "Projek Pribadi",
+    "year": "2026",
+    "role": "Full Stack Developer",
+    "description": "Website profil band Morals, dibangun dengan Next.js dan TailwindCSS. Proyek pribadi yang menampilkan informasi tentang band, jadwal konser, serta galeri foto dan video.",
+    "fullDescription": "Website Morals adalah platform digital untuk memperkenalkan band lokal Morals. Dibangun dengan teknologi modern menggunakan Next.js sebagai frontend dan TailwindCSS untuk desain responsif. Website ini menampilkan informasi tentang Band Morals. Proyek ini bertujuan untuk meningkatkan visibilitas band dan memberikan pengalaman pengguna yang baik.",
+    "features": [
+      "Profil band lengkap dengan biografi dan anggota",
+      "Integrasi media sosial untuk update terbaru",
+      "Desain responsif untuk berbagai perangkat",
+      "Formulir kontak untuk booking atau pertanyaan"
+    ],
+    "database": "MySQL",
+    "imageSrcs": [
+      "./images/morals-home.png",
+      "./images/morals-biography.png",
+      "./images/morals-dischography.png"
+    ],
+    "frameworks": [
+      "Next.js",
+      "TailwindCSS"
+    ],
+    "githubLink": "https://github.com/rafli-dio/Web-Morals.git"
+  },
+  {
     "title": "Dunia Fauna",
     "category": "Tugas Akhir Mata Kuliah",
     "year": "2023",
@@ -80,37 +138,5 @@
       "Bootstrap"
     ],
     "githubLink": "https://github.com/rafli-dio/booking-lapangan"
-  },
-  {
-    "title": "Website MainDiHatta - Booking Lapangan Basket Hatta Sport Center",
-    "category": "Projek Skripsi",
-    "year": "2026",
-    "role": "Full Stack Developer",
-    "description": "Website pemesanan lapangan basket berbasis web untuk Hatta Sport Center, dibangun dengan Next.js dan Laravel REST API. Proyek skripsi yang menghadirkan sistem booking real-time, manajemen jadwal, serta dashboard admin yang komprehensif.",
-    "fullDescription": "MainDiHatta adalah sistem informasi pemesanan lapangan basket berbasis web yang dikembangkan sebagai proyek skripsi untuk Hatta Sport Center. Website ini dibangun dengan arsitektur modern menggunakan Next.js sebagai frontend dan Laravel sebagai REST API backend. Aplikasi ini memungkinkan pelanggan untuk memesan lapangan basket secara online dengan memilih jadwal yang tersedia, melakukan pembayaran, serta memantau status reservasi secara real-time. Di sisi admin, tersedia dashboard lengkap untuk mengelola pemesanan, lapangan, jadwal, pengguna, serta laporan pendapatan. Sistem ini juga dilengkapi dengan fitur notifikasi, riwayat transaksi, dan manajemen pemeliharaan lapangan untuk mendukung operasional harian venue secara efisien.",
-    "features": [
-      "Pemesanan lapangan basket secara online",
-      "Cek ketersediaan jadwal real-time",
-      "Sistem autentikasi pengguna (Login & Register)",
-      "Manajemen pemeliharaan & status lapangan",
-      "Konfirmasi & penolakan booking oleh admin",
-      "Dashboard admin dengan statistik & laporan",
-      "Riwayat & histori pemesanan pengguna",
-      "Manajemen data pengguna oleh admin",
-      "REST API berbasis Laravel",
-      "Desain responsif dengan TailwindCSS"
-    ],
-    "database": "MySQL",
-    "imageSrcs": [
-      "./images/maindihatta-home.png",
-      "./images/maindihatta-booking.png",
-      "./images/maindihatta-dashboard.png"
-    ],
-    "frameworks": [
-      "Next.js",
-      "TailwindCSS",
-      "Laravel"
-    ],
-    "githubLink": "https://github.com/rafli-dio/maindihatta"
   }
 ]
