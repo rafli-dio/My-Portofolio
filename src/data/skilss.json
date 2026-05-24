@@ -36,6 +36,10 @@
     "logo": "devicon-react-plain text-6xl"
   },
   {
+    "name": "Next.js",
+    "logo": "devicon-nextjs-plain text-6xl"
+  },
+  {
     "name": "Node.js",
     "logo": "devicon-nodejs-plain text-6xl"
   },
